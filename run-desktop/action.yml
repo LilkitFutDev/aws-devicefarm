@@ -1,0 +1,6 @@
+name: 'Start a testrun on desktop'
+description: 'Start a testrun on desktop'
+inputs:
+  project_arn:
+    description: 'ARN of an existing device farm project'
+    required: true
