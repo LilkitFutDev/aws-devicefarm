@@ -1,6 +1,23 @@
-name: 'Start a testrun on desktop'
+name: 'Start a test_run on desktop'
 description: 'Start a testrun on desktop'
 inputs:
   project_arn:
     description: 'ARN of an existing device farm project'
     required: true
+  expires_in_seconds:
+    description: 'second'
+    required: true
+outputs:
+  data:
+    description: 'JSON data returned from the API'
+  arn:
+    description: 'The ARN of the newly created upload'
+  parsing_result_url:
+    description: 'The URL containing potential parsing errors'
+  result_code:
+    description: 'The result (pass/fail) of the test run'
+  status:
+    description: 'x'
+runs:
+  using: 'node12'
+  main: 'index.js'
