@@ -11,17 +11,12 @@ params.projectArn = core.getInput('project_arn');
 
 params.expiresInSeconds = core.getInput('expires_in_seconds');
 
-
-params_test.testPackageArn = core.getInput('test_package_arn');
-params_test.testSpecArn = core.getInput('test_spec_arn');
-
 if (!devicefarm.validateParameters(params,
     {projectArn: 'project_arn',
              expiresInSeconds: 'expires_in_seconds'})) {
     return;
 }
 
-params.test = params_test;
 
 devicefarm.createTestGridUrl(params)
     .then(data => {
