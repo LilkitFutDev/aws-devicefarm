@@ -11,6 +11,8 @@ params.projectArn = core.getInput('project_arn');
 
 params.expiresInSeconds = core.getInput('expires_in_seconds');
 
+
+
 if (!devicefarm.validateParameters(params,
     {projectArn: 'project_arn',
              expiresInSeconds: 'expires_in_seconds'})) {
@@ -21,7 +23,7 @@ if (!devicefarm.validateParameters(params,
 devicefarm.createTestGridUrl(params)
     .then(data => {
         core.setOutput("data", data);
-        core.setOutput("arn", data.run.arn);
+        core.setOutput("arn1", data.run.arn);
         core.setOutput("parsing_result_url", data.run.parsingResultUrl);
         core.setOutput("result_code", data.run.resultCode);
         core.setOutput("status", data.run.status);
