@@ -8,10 +8,10 @@ var params_test = {};
 // deviceSelectionConfiguration - as pool arn is way easier
 // stick with that for now
 params.projectArn = core.getInput('project_arn');
-params.name = core.getInput('name');
+
 params.expiresInSeconds = core.getInput('expires_in_seconds');
 
-params_test.type = core.getInput('test_type');
+
 params_test.testPackageArn = core.getInput('test_package_arn');
 params_test.testSpecArn = core.getInput('test_spec_arn');
 
