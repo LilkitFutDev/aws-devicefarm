@@ -22,7 +22,9 @@ if (!devicefarm.validateParameters(params,
 
 devicefarm.createTestGridUrl(params)
     .then(data => {
-        console.log("DATA", data.valueOf().url)
+
+        core.exportVariable("URL", data.valueOf().url)
+        console.log(core.exportVariable("URL", data.valueOf().url))
         core.setOutput("data", data);
 
     })
