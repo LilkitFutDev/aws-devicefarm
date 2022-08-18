@@ -22,10 +22,7 @@ if (!devicefarm.validateParameters(params,
 
 devicefarm.createTestGridUrl(params)
     .then(data => {
+        console.log("DATA", data)
         core.setOutput("data", data);
-        core.setOutput("arn1", data.run.arn);
-        core.setOutput("parsing_result_url", data.run.parsingResultUrl);
-        core.setOutput("result_code", data.run.resultCode);
-        core.setOutput("status", data.run.status);
     })
     .catch(err => {core.setFailed(err)})
