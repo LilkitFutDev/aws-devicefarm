@@ -3,7 +3,7 @@ description: 'Start a testrun, uploading files as necessary'
 inputs:
   app_arn:
     description: 'ARN of an existing upload to use as app'
-    required: false
+    required: true
   project_arn:
     description: 'ARN of an existing device farm project'
     required: true
