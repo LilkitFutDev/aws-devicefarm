@@ -1,4 +1,22 @@
 * AWS devicefarm                                                      :TOC_4:
+
+Note before start:
+Since GitHub Action does not currently support sharing from private repositories,
+you will need to make this repository public (on your personal account or make it public on your organization's account),
+and in order to use it you will need to set your value:
+
+*** Example
+#+BEGIN_SRC
+- name: Schedule test run with mixed data
+     id: test
+     uses: YOUR_ACCOUNT_NAME/aws-devicefarm/run-desktop@master
+     with:
+       name: run desktop
+       project_arn: ${{ secrets.AWS_PROJECT_ARN }}
+       expires_in_seconds: 300
+#+END_SRC
+
+
   - [[#introduction][Introduction]]
     - [[#examples][Examples]]
       - [[#example-with-remote-sources-and-artifact-pulling][Example with remote sources and artifact pulling]]
