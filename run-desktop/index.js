@@ -23,9 +23,7 @@ if (!devicefarm.validateParameters(params,
 devicefarm.createTestGridUrl(params)
     .then(data => {
 
-        core.setOutput("data", data);
-        core.setOutput("Variable", process.env.URL = data.valueOf().url)
-
+        core.setOutput("data", data.valueOf().url);
 
     })
     .catch(err => {core.setFailed(err)})
