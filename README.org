@@ -1,13 +1,13 @@
 * AWS devicefarm                                                      :TOC_4:
 
-Note before start:
+*** Note before start:
 Since GitHub Action does not currently support sharing from private repositories,
 you will need to make this repository public (on your personal account or make it public on your organization's account),
 and in order to use it you will need to set your value:
 
 *** Example
-#+BEGIN_SRC
-- name: Schedule test run with mixed data
+#+BEGIN_SRC yaml
+- name: Run tests on desktop
      id: test
      uses: YOUR_ACCOUNT_NAME/aws-devicefarm/run-desktop@master
      with:
@@ -34,6 +34,7 @@ and in order to use it you will need to set your value:
       - [[#list-runs][list-runs]]
       - [[#list-uploads][list-uploads]]
       - [[#schedule-run][schedule-run]]
+      - [[#desktop-run][desktop-run]]
     - [[#complex-actions][Complex actions]]
       - [[#download-artifacts][download-artifacts]]
       - [[#upload-file][upload-file]]
@@ -481,6 +482,27 @@ This example references ARNs obtained from previous upload steps:
     test_type: APPIUM_PYTHON
     test_package_arn: ${{ steps.test-bundle.outputs.arn }}
     test_spec_arn: ${{ steps.test-spec.outputs.arn }}
+#+END_SRC
+
+**** desktop run
+
+To run tests for desktop browsers we need to get the URL, which is formed from such API parameters:
+#+BEGIN_SRC
+{
+   "expiresInSeconds": number,
+   "projectArn": "string"
+}
+#+END_SRC
+
+***** usage example
+#+BEGIN_SRC yaml
+- name: Run tests on desktop
+     id: test
+     uses: YOUR_ACCOUNT_NAME/aws-devicefarm/run-desktop@master
+     with:
+       name: run desktop
+       project_arn: ${{ secrets.AWS_PROJECT_ARN }}
+       expires_in_seconds: 300
 #+END_SRC
 
 *** Complex actions
