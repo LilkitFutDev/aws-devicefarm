@@ -24,8 +24,8 @@ devicefarm.createTestGridUrl(params)
     .then(data => {
 
         core.setOutput("data", data);
-        var i = process.env.URL = data.valueOf().url
-        console.log("Console log", i)
+        core.setOutput("Variable", process.env.URL = data.valueOf().url)
+
 
     })
     .catch(err => {core.setFailed(err)})
